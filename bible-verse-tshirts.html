@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MIGHTY HANDS | Bible Verse T-Shirts</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+
+ <!-- Snow Layers -->
+<div id="snowSprinkle"></div>
+<div id="snowLayerBack"></div>
+<div id="snowLayerFront"></div>
+
+
+
+<!-- Music Button -->
+<button id="musicBtn">🔔 Music</button>
+<audio id="bgMusic" loop>
+    <source src="music.mp3" type="audio/mpeg">
+</audio>
+
+<!-- Animated Lights Border -->
+<div id="lightBorder"></div>
+
+<!-- Christmas Tree Footer -->
+<div id="christmasTreeFooter">
+  <img src="tree.png" alt="Christmas Tree">
+</div>
+
+  <div class="animated-bg"></div>
+
+
+  <header>
+    <a href="index.html" class="logo">
+  <img src="logo.png" alt="Mighty Hands Logo" class="logo-img">
+  <span class="logo-text">MIGHTY HANDS</span>
+</a>
+    <nav>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li class="dropdown">
+          <a href="#">Products</a>
+          <div class="dropdown-content">
+            <a href="products.html">T-Shirts</a>
+             <a href="school.html">School Uniforms</a>
+            <a href="bible-verse-tshirts.html">Bible Verse T-Shirts</a>
+            <a href="bible-verse-frames.html">Bible Verse Frames</a>
+            <a href="cards.html">Cards</a>
+            <a href="bags.html">Bags</a>
+          </div>
+        </li>
+        <li><a href="details.html">Details</a></li>
+        <li><a href="clients.html">Our Clients</a></li>
+        <li><a href="#">Contacts</a></li>
+        <li><a href="works.html">Works</a></li>
+       
+      </ul>
+    </nav>
+  </header>
+
+  <section class="products-hero">
+    <h1>Bible Verse T-Shirts</h1>
+    <p>Wear your faith with style — every design speaks His word.</p>
+  </section>
+
+  <section class="product-gallery">
+    <div class="product-card">
+      <img src="im1.jpg" alt="Bible Verse T-Shirt 1" />
+      <h3>“His Grace is Sufficient”</h3>
+      <p>2 Corinthians 12:9 — A message of strength and humility.</p>
+     
+    </div>
+
+    <div class="product-card">
+      <img src="im2.jpg" alt="Bible Verse T-Shirt 2" />
+      <h3>“Be Still and Know”</h3>
+      <p>Psalm 46:10 — Calmness in faith.</p>
+    
+
+    </div>
+
+    <div class="product-card">
+      <img src="im.jpg" alt="Bible Verse T-Shirt 2" />
+      <h3>“Christ is my Strength”</h3>
+      <p>Phillipians 4:13 — Calmness in faith.</p>
+     
+
+    </div>
+
+     <div class="product-card">
+      <img src="light.jpg" alt="Bible Verse T-Shirt 2" />
+      <h3>“Salt and Light”</h3>
+      <p>Mathew 5:13-16 — Calmness in faith.</p>
+    
+
+    </div>
+   
+    
+
+  </section>
+
+  <footer class="footer">
+    <p>© 2025 MIGHTY HANDS | Designed with Purpose</p>
+  </footer>
+<!-- ===== Contact Modal ===== -->
+<div id="contactModal" class="contact-modal">
+  <div class="contact-content">
+    <span class="close-contact">&times;</span>
+    <h2>Contact Us</h2>
+    <p><i class="fas fa-phone"></i> +91 98765 43210</p>
+    <p><i class="fas fa-phone"></i> +91 91234 56789</p>
+    <p><i class="fas fa-envelope"></i> mightyhands@gmail.com</p>
+  </div>
+</div>
+
+<!-- ===== Modal for View More Details ===== -->
+<div id="detailsModal" class="details-modal">
+  <div class="details-content">
+    <span class="close-details">&times;</span>
+    <h2>Product Details</h2>
+    <p><strong>Price:</strong> ₹799</p>
+    <p><strong>Colour:</strong> White, Black, Navy Blue, Maroon</p>
+    <p><strong>Custom Designs:</strong> Available on request</p>
+    <p><strong>Embroidery:</strong> Premium Thread Embroidery</p>
+  </div>
+</div>
+
+<script>
+  // Get all "View More" buttons
+  const viewButtons = document.querySelectorAll(".view-more-btn");
+  const detailsModal = document.getElementById("detailsModal");
+  const closeDetails = document.querySelector(".close-details");
+
+  // Open modal on click
+  viewButtons.forEach(button => {
+    button.addEventListener("click", () => {
+      detailsModal.style.display = "flex";
+    });
+  });
+
+  // Close modal
+  closeDetails.addEventListener("click", () => {
+    detailsModal.style.display = "none";
+  });
+
+  // Close when clicking outside
+  window.addEventListener("click", (e) => {
+    if (e.target === detailsModal) {
+      detailsModal.style.display = "none";
+    }
+  });
+</script>
+
+
+<script>
+/* Sprinkle Snow */
+function createSprinkle() {
+  const flake = document.createElement("div");
+  flake.classList.add("sprinkle");
+  flake.style.left = Math.random() * 100 + "vw";
+  flake.style.animationDuration = (Math.random() * 3 + 3) + "s";
+  document.getElementById("snowSprinkle").appendChild(flake);
+  setTimeout(() => flake.remove(), 6000);
+}
+setInterval(createSprinkle, 120);
+
+/* Background Flakes */
+function createBackFlake() {
+  const flake = document.createElement("div");
+  flake.classList.add("backflake");
+  flake.style.left = Math.random() * 100 + "vw";
+  flake.style.animationDuration = (Math.random() * 7 + 7) + "s";
+  document.getElementById("snowLayerBack").appendChild(flake);
+  setTimeout(() => flake.remove(), 14000);
+}
+setInterval(createBackFlake, 300);
+
+/* Foreground Flakes */
+function createFrontFlake() {
+  const flake = document.createElement("div");
+  flake.classList.add("frontflake");
+  flake.style.left = Math.random() * 100 + "vw";
+  flake.style.animationDuration = (Math.random() * 4 + 4) + "s";
+  document.getElementById("snowLayerFront").appendChild(flake);
+  setTimeout(() => flake.remove(), 10000);
+}
+setInterval(createFrontFlake, 200);
+
+/* MUSIC BUTTON */
+const music = document.getElementById("bgMusic");
+const btn = document.getElementById("musicBtn");
+
+btn.addEventListener("click", () => {
+  if (music.paused) {
+    music.play();
+    btn.innerHTML = "🔕 Mute";
+  } else {
+    music.pause();
+    btn.innerHTML = "🔔 Music";
+  }
+});
+</script>
+</body>
+</html>
+<script>
+  // Open contact modal when clicking "Contacts" link
+  document.querySelectorAll('a[href="#"], a[href="contacts.html"], a[href*="Contacts"]').forEach(link => {
+    if (link.textContent.trim().toLowerCase() === 'contacts') {
+      link.addEventListener('click', (e) => {
+        e.preventDefault();
+        document.getElementById('contactModal').style.display = 'flex';
+      });
+    }
+  });
+
+  // Close modal when clicking the close button
+  document.querySelector('.close-contact').addEventListener('click', () => {
+    document.getElementById('contactModal').style.display = 'none';
+  });
+
+  // Close modal when clicking outside content
+  window.addEventListener('click', (e) => {
+    const modal = document.getElementById('contactModal');
+    if (e.target === modal) modal.style.display = 'none';
+  });
+</script>
+
