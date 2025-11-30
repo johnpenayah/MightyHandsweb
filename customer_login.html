@@ -32,7 +32,7 @@
       margin-bottom: 20px;
     }
 
-    input, select, textarea {
+    input, textarea {
       width: 100%;
       padding: 10px;
       margin-bottom: 15px;
@@ -58,7 +58,6 @@
     button:hover {
       background: #1565c0;
     }
-
   </style>
 </head>
 
@@ -89,31 +88,32 @@
     </form>
   </div>
 
-  <script>
-    const scriptURL = "https://script.google.com/macros/s/AKfycbwlSKe6yszzY6FTRyKmCHzawoErYY2Vez4y8XDjYE244qQJPg3iViAM2oIyUuC3g394/exec"; // <-- CHANGE THIS
+ <script>
+  document.querySelector("form").addEventListener("submit", async (e) => {
+    e.preventDefault();
 
-    document.getElementById("contactForm").addEventListener("submit", async function(e) {
-      e.preventDefault();
+    const data = {
+      name: document.querySelector("#name").value,
+      email: document.querySelector("#email").value,
+      phone: document.querySelector("#phone").value,
+      product: document.querySelector("#product").value,
+      message: document.querySelector("#message").value
+    };
 
-      const formData = new FormData(this);
-
-      try {
-        const response = await fetch(scriptURL, {
-          method: "POST",
-          body: formData
-        });
-
-        const text = await response.text();
-
-        alert("Form submitted successfully!");
-        this.reset();
-
-      } catch (error) {
-        alert("Error submitting form!");
-        console.error(error);
+    await fetch(
+      "https://script.google.com/macros/s/AKfycbwlSKe6yszzY6FTRyKmCHzawoErYY2Vez4y8XDjYE244qQJPg3iViAM2oIyUuC3g394/exec",
+      {
+        method: "POST",
+        mode: "no-cors",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data)
       }
-    });
-  </script>
+    );
+
+    alert("Form submitted successfully!");
+  });
+</script>
+
 
 </body>
 </html>
